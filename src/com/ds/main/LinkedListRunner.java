@@ -3,9 +3,6 @@
  */
 package com.ds.main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.ds.linkedlist.LinkedList;
 
 /**
