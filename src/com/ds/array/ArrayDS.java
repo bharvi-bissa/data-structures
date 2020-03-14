@@ -3,6 +3,7 @@ package com.ds.array;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 /**
  * @author bharvi.b
@@ -159,5 +160,51 @@ public class ArrayDS {
 		}
 		return freqMap;
 	}
+	
+	/*
+	 * find next greater element of each element in an array
+	 * 
+	 * @param array
+	 * 
+	 * complexity : O(n2)
+	 */
+	public void findNextGreaterElemenetOfEachElement(int a[]) {
+		int n = a.length;
+		int next;
+		for (int i = 0; i < n; i++) {
+			next = -1;
+			for (int j = i + 1; j < n; j++) {
+				if (a[j] > a[i]) {
+					next = a[j];
+					break;
+				}
+			}
+			System.out.println("Next greater element for " + a[i] + " is " + next);
+		}
+	}
+	
+	/*
+	 * find next greater element of each element in an array using stack
+	 * 
+	 * @param array
+	 * 
+	 * complexity : O(n)
+	 */
+	public void findNextGreaterElementOfEachElementUsingStack(int a[]) {
+		Stack<Integer> stack = new Stack<>();
+		int n = a.length;
+		stack.push(a[0]);
+		for (int i = 1; i < n; i++) {
+			// pop element of stack if incoming element is greater than element at top of
+			// the stack till stack is not empty
+			while (!stack.isEmpty() && a[i] > stack.peek()) {
+				System.out.println("Next greater element for " + stack.peek() + " is " + a[i]);
+				stack.pop();
+			}
+			stack.push(a[i]);
+		}
 
+		// print remaining element in stack (these elements has no next greater element)
+		stack.forEach(el -> System.out.println("Next greater element for " + el + " is -1"));
+	}
 }
