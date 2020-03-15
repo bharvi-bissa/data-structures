@@ -4,6 +4,7 @@
 package com.ds.main;
 
 import com.ds.linkedlist.LinkedList;
+import com.ds.linkedlist.Node;
 
 /**
  * @author bharvi
@@ -12,16 +13,14 @@ import com.ds.linkedlist.LinkedList;
 public class LinkedListRunner {
 	public static void main(String[] args) {
 		LinkedList<Integer> linkedList = new LinkedList<>();
-
-		linkedList.insertAtEnd(5);
-		linkedList.insertAtEnd(10);
-		linkedList.insertAtStart(25);
-		linkedList.insertAtPosition(0, 60);
-		linkedList.printData();
-		linkedList.deleteAtPosition(2);
-		linkedList.printData();
-		linkedList.findElement(10);
-		linkedList.printData();
-		System.out.println(linkedList.findLength());
+//		linkedList.insertAtStart(1);
+//		linkedList.insertAtStart(7);
+//		linkedList.insertAtStart(5);
+//		linkedList.insertAtStart(3);
+//		linkedList.insertAtEnd(88);
+//		linkedList.printData();
+		// linkedList.findMiddleNode();
+		Node<Integer> head = linkedList.createLoopInLinkedList();
+		System.out.println(linkedList.containsLoop(head));
 	}
 }

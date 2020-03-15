@@ -114,4 +114,51 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 		}
 		System.out.print(node.data + "\n");
 	}
+
+	@Override
+	public void findMiddleNode() {
+		Node<T> slowPtr = head;
+		Node<T> fastPtr = head;
+		while (fastPtr != null && fastPtr.next != null) {
+			slowPtr = slowPtr.next;
+			fastPtr = fastPtr.next.next;
+		}
+		System.out.println("Middle Node :: " + slowPtr.getData());
+	}
+
+	public Node<T> createLoopInLinkedList() {
+		Node<Integer> node1 = new Node<>(1);
+		Node<Integer> node2 = new Node<>(8);
+		Node<Integer> node3 = new Node<>(12);
+		Node<Integer> node4 = new Node<>(4);
+		Node<Integer> node5 = new Node<>(6);
+		Node<Integer> node6 = new Node<>(5);
+
+		node1.next = node2;
+		node2.next = node3;
+		node3.next = node4;
+		node4.next = node5;
+		node5.next = node6;
+		node6.next = node3;
+
+		head = (Node<T>) node1;
+
+		return head;
+	}
+
+	@Override
+	public boolean containsLoop(Node<T> head) {
+		Node<T> slowPtr = head;
+		Node<T> fastPtr = head;
+
+		while (fastPtr != null && fastPtr.next != null) {
+			fastPtr = fastPtr.next.next;
+			slowPtr = slowPtr.next;
+
+			if (fastPtr == slowPtr) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
