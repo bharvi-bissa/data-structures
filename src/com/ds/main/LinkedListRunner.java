@@ -21,6 +21,9 @@ public class LinkedListRunner {
 //		linkedList.printData();
 		// linkedList.findMiddleNode();
 		Node<Integer> head = linkedList.createLoopInLinkedList();
-		System.out.println(linkedList.containsLoop(head));
+		Node<Integer> slowPtr = linkedList.containsLoop(head);
+		//System.out.println(linkedList.findStartOfLoopInLinkedList(slowPtr,head).getData());
+		linkedList.removeLoopInLinkedList(slowPtr, head);
+		linkedList.printLinkedListFromGivenHead(head);
 	}
 }

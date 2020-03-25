@@ -147,7 +147,7 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 	}
 
 	@Override
-	public boolean containsLoop(Node<T> head) {
+	public Node<T> containsLoop(Node<T> head) {
 		Node<T> slowPtr = head;
 		Node<T> fastPtr = head;
 
@@ -156,9 +156,41 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 			slowPtr = slowPtr.next;
 
 			if (fastPtr == slowPtr) {
-				return true;
+				System.out.println("Linked List has loop");
+				return slowPtr;
 			}
 		}
-		return false;
+		return null;
+	}
+
+	@Override
+	public Node<T> findStartOfLoopInLinkedList(Node<T> slowPtr, Node<T> head) {
+		// move headPtr & slowPtr, find the point where head of linked list and slowPtr
+		// meets
+		while (slowPtr != head) {
+			slowPtr = slowPtr.next;
+			head = head.next;
+		}
+		return slowPtr;
+	}
+
+	@Override
+	public void removeLoopInLinkedList(Node<T> ptr, Node<T> head) {
+		// move headPtr & slowPtr, till head next and ptr next are not equals, if equal
+		// then make ptr next null
+		while (ptr.next != head.next) {
+			ptr = ptr.next;
+			head = head.next;
+		}
+		ptr.next = null;
+	}
+
+	@Override
+	public void printLinkedListFromGivenHead(Node<T> head) {
+		while (head != null) {
+			System.out.print(head.data + " ");
+			head = head.next;
+		}
+
 	}
 }

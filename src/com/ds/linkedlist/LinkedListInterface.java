@@ -15,8 +15,14 @@ public interface LinkedListInterface<T> {
 	public int findLength();
 
 	public void printData();
-	
+
 	public void findMiddleNode();
-	
-	public boolean containsLoop(Node<T> head);
+
+	public Node<T> containsLoop(Node<T> head);
+
+	public Node<T> findStartOfLoopInLinkedList(Node<T> ptr, Node<T> head);
+
+	public void removeLoopInLinkedList(Node<T> ptr, Node<T> head);
+
+	public void printLinkedListFromGivenHead(Node<T> head);
 }
