@@ -34,11 +34,18 @@ public class Tree<T> implements TreeInterface<T> {
 
     @Override
     public void inorderTraversalRecursive(TreeNode<T> root) {
-
+        //left -> root -> right
+        if(root == null){
+            return;
+        }
+        inorderTraversalRecursive(root.left);
+        System.out.print(root.data+" ");
+        inorderTraversalRecursive(root.right);
     }
 
     @Override
     public void preOrderTraversalRecursive(TreeNode<T> root) {
+        //root -> left -> right
         if(root == null){
             return;
         }
