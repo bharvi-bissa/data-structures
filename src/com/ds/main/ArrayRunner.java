@@ -7,6 +7,7 @@ public class ArrayRunner {
 	public static void main(String[] args) {
 		int a1[] = { 3, 1, 2, 3, 3, 3, 3 };
 		int a2[] = { 1 };
+		int array1s0s[] = {1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1};
 		int a3[] = {9,9,8,1,0,5};
 		ArrayDS arrayDS = new ArrayDS();
 
@@ -15,7 +16,8 @@ public class ArrayRunner {
 		//System.out.println(arrayDS.findInSortedAndRotatedArray(a3, 4));
 		///arrayDS.findFrequencyOfElements(a1);
 		//arrayDS.findNextGreaterElemenetOfEachElement(a3);
-		arrayDS.findNextGreaterElementOfEachElementUsingStack(a3);
+		//arrayDS.findNextGreaterElementOfEachElementUsingStack(a3);
+		System.out.println(arrayDS.findMaxConsecutiveOnesInArray(array1s0s));
 	}
 
 }

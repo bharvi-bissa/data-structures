@@ -207,4 +207,19 @@ public class ArrayDS {
 		// print remaining element in stack (these elements has no next greater element)
 		stack.forEach(el -> System.out.println("Next greater element for " + el + " is -1"));
 	}
+	
+	public int findMaxConsecutiveOnesInArray(int a[]) {
+		int count = 0;
+		int max = 0;
+		int n = a.length;
+		for(int i=0;i<n;i++) {
+			if(a[i] == 1) {
+				count ++;
+			}else {
+				count = 0;
+			}
+			max = count > max ? count : max;
+		}
+		return max;
+	}
 }
